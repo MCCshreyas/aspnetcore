@@ -22,9 +22,7 @@ namespace Microsoft.AspNetCore.Analyzers
             Debug.Assert(StartupFacts.IsStartupClass(_context.StartupSymbols, (INamedTypeSymbol)context.Symbol));
 
             var type = (INamedTypeSymbol)context.Symbol;
-
-            foreach (var serviceAnalysis in _context.GetRelatedAnalyses<ServicesAnalysis>(type))
-            {
+foreach (var serviceAnalysis in _context.GetRelatedAnalyses<ServicesAnalysis>(type)){
                 foreach (var serviceItem in serviceAnalysis.Services)
                 {
                     if (serviceItem.UseMethod.Name == "BuildServiceProvider")
